@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.samsepiol</groupId>
+        <artifactId>bom</artifactId>
+        <version>0.0.1-BOM-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.samsepiol.ai</groupId>
+    <artifactId>ai-service-root</artifactId>
+    <version>0.0.1-AI-SNAPSHOT</version>
+    <name>ai-service</name>
+    <description>ai-service</description>
+    <packaging>pom</packaging>
+
+
+    <properties>
+        <project.mainClass>com.samsepiol.ai.AIApplication</project.mainClass>
+        <samsepiol.library.version>0.0.2-LIBRARY-SNAPSHOT</samsepiol.library.version>
+        <open.ai.version>0.36.0</open.ai.version>
+    </properties>
+
+    <modules>
+        <module>ai-service-core</module>
+        <module>ai-service-controller</module>
+        <module>open-ai-integration</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.samsepiol.library</groupId>
+                <artifactId>library-core</artifactId>
+                <version>${samsepiol.library.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.samsepiol.library</groupId>
+                <artifactId>http</artifactId>
+                <version>${samsepiol.library.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.openai</groupId>
+                <artifactId>openai-java</artifactId>
+                <version>${open.ai.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

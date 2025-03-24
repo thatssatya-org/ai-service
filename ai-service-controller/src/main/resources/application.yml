@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ai-service-controller
+
+server:
+  port: 8080
+
+http-config:
+  serviceConfigs:
+    aiService:
+      baseUrl: ${aiService.host}
+      secured: true
+      apiConfigs:
+        chat:
+          path: '/chat'
+          method: 'POST'
+
+ai-client-config:
+  authorization: ${aiClientConfig.authorization}
+  origin: ${aiClientConfig.origin}
+
+open-ai-client-config:
+  apiKey: ${openai.client.apiKey}
