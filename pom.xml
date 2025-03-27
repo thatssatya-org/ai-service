@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.samsepiol</groupId>
         <artifactId>bom</artifactId>
-        <version>0.0.1-BOM-SNAPSHOT</version>
+        <version>0.0.2-BOM-SNAPSHOT</version>
         <relativePath/>
     </parent>
     <groupId>com.samsepiol.ai</groupId>
@@ -17,15 +17,14 @@
 
 
     <properties>
-        <project.mainClass>com.samsepiol.ai.AIApplication</project.mainClass>
         <samsepiol.library.version>0.0.2-LIBRARY-SNAPSHOT</samsepiol.library.version>
         <open.ai.version>0.36.0</open.ai.version>
     </properties>
 
     <modules>
+        <module>open-ai-integration</module>
         <module>ai-service-core</module>
         <module>ai-service-controller</module>
-        <module>open-ai-integration</module>
     </modules>
 
     <dependencyManagement>
