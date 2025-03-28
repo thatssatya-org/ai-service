@@ -1,23 +1,20 @@
-name: Build and Publish image to Docker Hub
+name: Build AI Service
 
 on:
-  [workflow_dispatch]
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - './Dockerfile'
+ push:
+   branches:
+     - master
 
 jobs:
-  publish_images:
-    runs-on: ubuntu-latest
+  build-bom:
+    runs-on: self-hosted
     steps:
-      - name: checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: build image
+      - name: Build Service Docker Image
         run: |
-          docker build . -t thatssatyadocker/ai-service:latest
-      - name: push image to docker hub
+          DOCKER_BUILDKIT=1 docker build . -t thatssatyadocker/ai-service:latest
+      - name: Push to Docker Hub
         run: |
           docker login -u thatssatyadocker -p ${{ secrets.DOCKER_HUB_SECRET }}
           docker push thatssatyadocker/ai-service:latest
