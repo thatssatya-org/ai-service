@@ -3,6 +3,14 @@ WORKDIR /app
 
 COPY pom.xml .
 
+COPY open-ai-integration/pom.xml ./open-ai-integration/
+COPY ai-service-core/pom.xml ./ai-service-core/
+COPY ai-service-controller/pom.xml ./ai-service-controller/
+
+# Download dependencies
+RUN --mount=type=cache,target=/root/.m2 \
+    mvn dependency:go-offline -T 1C
+
 COPY open-ai-integration ./open-ai-integration
 COPY ai-service-core ./ai-service-core
 COPY ai-service-controller ./ai-service-controller
