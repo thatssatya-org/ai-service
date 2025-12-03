@@ -16,6 +16,7 @@ jobs:
           DOCKER_BUILDKIT=1 docker build . -t thatssatyadocker/ai-service:latest
   push-image:
     runs-on: self-hosted
+    needs: build-image
     steps:
       - name: Push to Docker Hub
         run: |
